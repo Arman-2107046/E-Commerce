@@ -1,8 +1,8 @@
 
 const App = () => {
   return (
-    <div className="bg-red-500">
-      Hello World
+    <div className="bg-amber-500 text-9xl">
+      E-commerce
     </div>
   )
 }
