@@ -33,7 +33,7 @@ const FooterComponent = () => {
                 {" "}
                 <img src="/favicon.png" alt="Logo" className="h-12 w-auto" />
               </div>
-              <div className="text-blue-950 font-bold"> Swift Cart </div>
+              <div className="text-blue-950 font-bold text-2xl"> Swift Cart </div>
             </div>
             <br />
             {/* <p className="text-sm text-gray-600 mb-2">
