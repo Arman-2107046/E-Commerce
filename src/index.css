@@ -118,3 +118,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+
+@font-face {
+  font-family: "DMSerifText";
+  src: url("/fonts/DMSerifText-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DMSerifText";
+  src: url("/fonts/DMSerifText-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}

@@ -1,5 +1,3 @@
-
-
 // import { Heart, ShoppingCart, User } from "lucide-react";
 // import { useState } from "react";
 
@@ -43,7 +41,6 @@
 //     subcategories: ["Fitness Equipment", "Yoga & Pilates", "Outdoor Sports", "Sportswear", "Footwear", "Accessories"],
 //   },
 // ];
-
 
 // const Navbar = () => {
 //   const [activeCategory, setActiveCategory] = useState<number|null>(null);
@@ -134,49 +131,108 @@
 
 // export default Navbar;
 
-
-
-
-import { Heart, ShoppingCart, User } from "lucide-react";
+import { Heart, ShoppingCart, User, BookOpen } from "lucide-react";
 import { useState } from "react";
 
 // ✅ Categories with subcategories
 const categories = [
   {
     name: "Clothing & Fashion",
-    subcategories: ["Men's Clothing", "Women's Clothing", "Kids' Clothing", "Shoes", "Bags", "Jewelry & Accessories"],
+    subcategories: [
+      "Men's Clothing",
+      "Women's Clothing",
+      "Kids' Clothing",
+      "Shoes",
+      "Bags",
+      "Jewelry & Accessories",
+    ],
   },
   {
     name: "Grocery",
-    subcategories: ["Fruits & Vegetables", "Dairy & Eggs", "Snacks", "Beverages", "Staples", "Bakery"],
+    subcategories: [
+      "Fruits & Vegetables",
+      "Dairy & Eggs",
+      "Snacks",
+      "Beverages",
+      "Staples",
+      "Bakery",
+    ],
   },
   {
     name: "Electronics",
-    subcategories: ["Mobile Phones", "Laptops", "Cameras", "Headphones", "Smart Watches", "Speakers"],
+    subcategories: [
+      "Mobile Phones",
+      "Laptops",
+      "Cameras",
+      "Headphones",
+      "Smart Watches",
+      "Speakers",
+    ],
   },
   {
     name: "Stationary",
-    subcategories: ["Notebooks", "Pens & Pencils", "Markers & Highlighters", "Art Supplies", "Folders & Files"],
+    subcategories: [
+      "Notebooks",
+      "Pens & Pencils",
+      "Markers & Highlighters",
+      "Art Supplies",
+      "Folders & Files",
+    ],
   },
   {
     name: "Accessories",
-    subcategories: ["Bags & Backpacks", "Wallets", "Belts", "Sunglasses", "Watches", "Jewelry"],
+    subcategories: [
+      "Bags & Backpacks",
+      "Wallets",
+      "Belts",
+      "Sunglasses",
+      "Watches",
+      "Jewelry",
+    ],
   },
   {
     name: "Skincare & Haircare",
-    subcategories: ["Face Wash", "Moisturizers", "Sunscreen", "Shampoo & Conditioner", "Hair Oils", "Face Masks"],
+    subcategories: [
+      "Face Wash",
+      "Moisturizers",
+      "Sunscreen",
+      "Shampoo & Conditioner",
+      "Hair Oils",
+      "Face Masks",
+    ],
   },
   {
     name: "Beauty",
-    subcategories: ["Lipstick", "Foundation", "Eyeliner & Mascara", "Blush & Bronzer", "Makeup Brushes", "Nail Care"],
+    subcategories: [
+      "Lipstick",
+      "Foundation",
+      "Eyeliner & Mascara",
+      "Blush & Bronzer",
+      "Makeup Brushes",
+      "Nail Care",
+    ],
   },
   {
     name: "Home & Kitchen",
-    subcategories: ["Cookware", "Dining & Serveware", "Storage & Organization", "Bedding & Bath", "Cleaning Supplies", "Home Decor"],
+    subcategories: [
+      "Cookware",
+      "Dining & Serveware",
+      "Storage & Organization",
+      "Bedding & Bath",
+      "Cleaning Supplies",
+      "Home Decor",
+    ],
   },
   {
     name: "Sports",
-    subcategories: ["Fitness Equipment", "Yoga & Pilates", "Outdoor Sports", "Sportswear", "Footwear", "Accessories"],
+    subcategories: [
+      "Fitness Equipment",
+      "Yoga & Pilates",
+      "Outdoor Sports",
+      "Sportswear",
+      "Footwear",
+      "Accessories",
+    ],
   },
 ];
 
@@ -203,6 +259,13 @@ const Navbar = () => {
 
         {/* Right: Icons */}
         <div className="flex items-center space-x-4 lg:space-x-6 text-white">
+
+
+          <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
+            <BookOpen size={18} />
+            <span>Blog</span>
+          </div>
+
           <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
             <User size={18} />
             <span>Sign In</span>
@@ -238,21 +301,20 @@ const Navbar = () => {
               </button>
 
               {/* Dropdown */}
-              {activeCategory === idx &&
-                category.subcategories?.length > 0 && (
-                  <div className="absolute top-full left-0 mt-0 bg-white shadow-lg rounded-md border border-gray-200 z-50 min-w-[200px]">
-                    <ul className="py-2">
-                      {category.subcategories.map((sub, subIdx) => (
-                        <li
-                          key={subIdx}
-                          className="px-4 py-2 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition whitespace-nowrap"
-                        >
-                          {sub}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+              {activeCategory === idx && category.subcategories?.length > 0 && (
+                <div className="absolute top-full left-0 mt-0 bg-white shadow-lg rounded-md border border-gray-200 z-50 min-w-[200px]">
+                  <ul className="py-2">
+                    {category.subcategories.map((sub, subIdx) => (
+                      <li
+                        key={subIdx}
+                        className="px-4 py-2 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition whitespace-nowrap"
+                      >
+                        {sub}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </div>
