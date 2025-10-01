@@ -5,20 +5,20 @@ interface Category {
 }
 
 const categories: Category[] = [
-  { name: "Clothing & Fashion", image: "/clothing-fashion.png" },
-  { name: "Grocery", image: "/grocery.png" },
-  { name: "Electronics", image: "/electronics.png" },
-  { name: "Stationary", image: "/stationary.png" },
-  { name: "Accessories", image: "/accessories.png" },
-  { name: "Skincare & Haircare", image: "/skincare-haircare.png" },
-  { name: "Beauty", image: "/beauty.png" },
-  { name: "Home & Kitchen", image: "/home-kitchen.png" },
-  { name: "Sports", image: "/sports.png" },
+  { name: "Clothing & Fashion", image: "/CategoryImages/t-shirt.jpeg" },
+  { name: "Grocery", image: "/CategoryImages/grocery.png" },
+  { name: "Electronics", image: "/CategoryImages/electronics.jpg" },
+  { name: "Stationary", image: "/CategoryImages/stationary.jpg" },
+  { name: "Accessories", image: "/CategoryImages/accessories.jpg" },
+  { name: "Skincare & Haircare", image: "/CategoryImages/skincare.jpg" },
+  { name: "Beauty", image: "/CategoryImages/beauty.jpg" },
+  { name: "Home & Kitchen", image: "/CategoryImages/kitchen.jpg" },
+  { name: "Sports", image: "/CategoryImages/sports.jpg" },
 ];
 
 const FeaturedCategories = () => {
   return (
-    <div className="w-full bg-gray-50 py-16">
+    <div className="w-full  py-16">
       <div className="max-w-7xl mx-auto px-8">
         {/* Title */}
         <h2 className="text-5xl font-bold mb-12">
