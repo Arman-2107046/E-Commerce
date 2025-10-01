@@ -21,6 +21,7 @@ const rightImages = [
 
 const HeroSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [carouselApi, setCarouselApi] = useState<any>(null);
 
   // Autoplay
