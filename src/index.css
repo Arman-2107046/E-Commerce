@@ -135,3 +135,9 @@
   font-weight: 400;
   font-style: italic;
 }
+
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}

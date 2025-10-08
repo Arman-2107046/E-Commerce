@@ -85,7 +85,7 @@ const GroceryFood: React.FC = () => {
           Farm Fresh <span className="text-blue-900"> Groceries</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-8">
           {products.map((p) => (
             <div
               key={p.id}
