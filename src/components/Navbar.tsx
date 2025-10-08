@@ -260,7 +260,6 @@
 //         {/* Right: Icons */}
 //         <div className="flex items-center space-x-4 lg:space-x-6 text-white">
 
-
 //           <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
 //             <BookOpen size={18} />
 //             <span>Blog</span>
@@ -325,11 +324,8 @@
 
 // export default Navbar;
 
-
-
 import { useState } from "react";
-import { ShoppingCart, Menu, X } from "lucide-react";
-// import { Dialog } from "@radix-ui/react-dialog"; // shadcn dialog
+import { Heart, ShoppingCart, User, BookOpen, Menu, X } from "lucide-react";
 
 const categories = [
   {
@@ -457,16 +453,51 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Desktop Navbar */}
-      <div className="hidden lg:flex items-center justify-between px-8 py-4">
-        <img src="/logo1.png" alt="Logo" className="h-12 w-auto" />
+      {/* Mobile Search Bar */}
+      <div className="lg:hidden px-4 pb-4">
         <input
           type="text"
           placeholder="Search for products..."
-          className="w-2/3 px-4 py-2 rounded-sm border border-gray-300 shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-700 text-black placeholder-gray-400 bg-white"
+          className="w-full px-4 py-2 rounded-sm border border-gray-300 shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-700 text-black placeholder-gray-400 bg-white"
         />
+      </div>
+
+      {/* Desktop Navbar */}
+      <div className="hidden lg:flex items-center justify-between px-8 py-4">
+        <img src="/logo1.png" alt="Logo" className="h-12 w-auto" />
+
+        <input
+          type="text"
+          placeholder="Search for products..."
+          className="w-2/4 px-4 py-2 rounded-sm border border-gray-300 shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-700 text-black placeholder-gray-400 bg-white"
+        />
+
         <div className="flex items-center space-x-6 text-white">
-          <ShoppingCart size={20} />
+          {/* Blog */}
+          <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
+            <BookOpen size={18} />
+            <span>Blog</span>
+          </div>
+
+          {/* Sign In */}
+          <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
+            <User size={18} />
+            <span>Sign In</span>
+          </div>
+
+          {/* Wishlist */}
+          <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
+            <Heart size={18} />
+            <span>Wishlist</span>
+          </div>
+
+          {/* Cart */}
+          <div className="relative flex items-center cursor-pointer hover:text-yellow-300 transition">
+            <ShoppingCart size={20} />
+            <span className="absolute -top-2 -right-3 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full shadow">
+              0
+            </span>
+          </div>
         </div>
       </div>
 
@@ -478,46 +509,64 @@ const Navbar = () => {
         >
           {/* Menu panel */}
           <div
-            className="bg-white w-4/5 h-full p-6 overflow-y-auto"
+            className="bg-white w-4/5 h-full p-6 overflow-y-auto flex flex-col justify-between"
             onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside panel
           >
-            {/* Close button */}
-            <div className="flex justify-end mb-4">
-              <button onClick={() => setMobileMenuOpen(false)}>
-                <X size={28} />
-              </button>
+            <div>
+              {/* Close button */}
+              <div className="flex justify-end mb-4">
+                <button onClick={() => setMobileMenuOpen(false)}>
+                  <X size={28} />
+                </button>
+              </div>
+
+              {/* Categories */}
+              <ul className="space-y-2">
+                {categories.map((cat, idx) => (
+                  <li key={idx} className="border-b pb-2">
+                    <button
+                      className="w-full flex justify-between items-center text-black font-medium text-lg"
+                      onClick={() =>
+                        setExpandedCategory(expandedCategory === idx ? null : idx)
+                      }
+                    >
+                      {cat.name}
+                      <span>{expandedCategory === idx ? "-" : "+"}</span>
+                    </button>
+
+                    {/* Subcategories */}
+                    {expandedCategory === idx && (
+                      <ul className="pl-4 mt-2 space-y-1 text-gray-700">
+                        {cat.subcategories.map((sub, subIdx) => (
+                          <li
+                            key={subIdx}
+                            className="hover:text-blue-600 cursor-pointer"
+                          >
+                            {sub}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Categories */}
-            <ul className="space-y-2">
-              {categories.map((cat, idx) => (
-                <li key={idx} className="border-b pb-2">
-                  <button
-                    className="w-full flex justify-between items-center text-black font-medium text-lg"
-                    onClick={() =>
-                      setExpandedCategory(expandedCategory === idx ? null : idx)
-                    }
-                  >
-                    {cat.name}
-                    <span>{expandedCategory === idx ? "-" : "+"}</span>
-                  </button>
-
-                  {/* Subcategories */}
-                  {expandedCategory === idx && (
-                    <ul className="pl-4 mt-2 space-y-1 text-gray-700">
-                      {cat.subcategories.map((sub, subIdx) => (
-                        <li
-                          key={subIdx}
-                          className="hover:text-blue-600 cursor-pointer"
-                        >
-                          {sub}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
+            {/* Bottom Links: Blog, Sign In, Wishlist */}
+            <div className="mt-6  pt-4 flex flex-col space-y-4">
+              <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
+                <BookOpen size={18} />
+                <span>Blog</span>
+              </div>
+              <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
+                <User size={18} />
+                <span>Sign In</span>
+              </div>
+              <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
+                <Heart size={18} />
+                <span>Wishlist</span>
+              </div>
+            </div>
           </div>
         </div>
       )}
