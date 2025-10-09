@@ -149,7 +149,6 @@ const heroImages = [
   "/HeroImages/h1.jpg",
   "/HeroImages/h3.jpg",
   "/HeroImages/h4.jpg",
-  "/HeroImages/h2.jpg",
 ];
 
 const rightImages = ["/HeroImages/r1.jpg", "/HeroImages/r2.jpg"];

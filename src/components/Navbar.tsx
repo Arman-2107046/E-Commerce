@@ -326,6 +326,7 @@
 
 import { useState } from "react";
 import { Heart, ShoppingCart, User, BookOpen, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -442,8 +443,13 @@ const Navbar = () => {
         </button>
 
         {/* Logo */}
-        <img src="/logo1.png" alt="Logo" className="h-12 w-auto mx-auto" />
-
+        <Link to="/" className="block">
+          <img
+            src="/logo1.png"
+            alt="Logo"
+            className="h-12 w-auto mx-auto cursor-pointer"
+          />
+        </Link>
         {/* Cart */}
         <div className="relative">
           <ShoppingCart size={28} className="text-white" />
@@ -464,8 +470,13 @@ const Navbar = () => {
 
       {/* Desktop Navbar */}
       <div className="hidden lg:flex items-center justify-between px-8 py-4">
-        <img src="/logo1.png" alt="Logo" className="h-12 w-auto" />
-
+        <Link to="/" className="block">
+          <img
+            src="/logo1.png"
+            alt="Logo"
+            className="h-12 w-auto mx-auto cursor-pointer"
+          />
+        </Link>
         <input
           type="text"
           placeholder="Search for products..."
@@ -501,6 +512,41 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Desktop Categories Menu */}
+      <div className="hidden lg:block bg-white px-12 py-3 relative">
+        <div className="flex space-x-10 justify-center">
+          {categories.map((category, idx) => (
+            <div
+              key={idx}
+              className="relative"
+              onMouseEnter={() => setExpandedCategory(idx)}
+              onMouseLeave={() => setExpandedCategory(null)}
+            >
+              <button className="text-black font-medium hover:text-blue-600 transition py-2 px-3">
+                {category.name}
+              </button>
+
+              {/* Dropdown */}
+              {expandedCategory === idx &&
+                category.subcategories?.length > 0 && (
+                  <div className="absolute top-full left-0 mt-0 bg-white shadow-lg rounded-md border border-gray-200 z-50 min-w-[200px]">
+                    <ul className="py-2">
+                      {category.subcategories.map((sub, subIdx) => (
+                        <li
+                          key={subIdx}
+                          className="px-4 py-2 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition"
+                        >
+                          {sub}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
@@ -527,7 +573,9 @@ const Navbar = () => {
                     <button
                       className="w-full flex justify-between items-center text-black font-medium text-lg"
                       onClick={() =>
-                        setExpandedCategory(expandedCategory === idx ? null : idx)
+                        setExpandedCategory(
+                          expandedCategory === idx ? null : idx
+                        )
                       }
                     >
                       {cat.name}
