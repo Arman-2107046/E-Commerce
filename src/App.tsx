@@ -40,3 +40,26 @@ export default function App() {
   
   )
 }
+
+
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import Home from './pages/Home';
+// import Blogs from './pages/Blogs';
+// import CategoryPage from './pages/CategoryPage';
+
+// export default function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         {/* Home */}
+//         <Route path="/" element={<Home />} />
+
+//         {/* Blogs */}
+//         <Route path="/blogs" element={<Blogs />} />
+
+//         {/* Dynamic Category Page */}
+//         <Route path="/category/:slug" element={<CategoryPage />} />
+//       </Routes>
+//     </Router>
+//   );
+// }

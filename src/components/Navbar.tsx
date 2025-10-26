@@ -324,159 +324,350 @@
 
 // export default Navbar;
 
-import { useState } from "react";
+
+
+// import { useState } from "react";
+// import { Heart, ShoppingCart, User, BookOpen, Menu, X } from "lucide-react";
+// import { Link } from "react-router-dom";
+
+// const categories = [
+//   {
+//     name: "Clothing & Fashion",
+//     subcategories: [
+//       "Men's Clothing",
+//       "Women's Clothing",
+//       "Kids' Clothing",
+//       "Shoes",
+//       "Bags",
+//       "Jewelry & Accessories",
+//     ],
+//   },
+//   {
+//     name: "Grocery",
+//     subcategories: [
+//       "Fruits & Vegetables",
+//       "Dairy & Eggs",
+//       "Snacks",
+//       "Beverages",
+//       "Staples",
+//       "Bakery",
+//     ],
+//   },
+//   {
+//     name: "Electronics",
+//     subcategories: [
+//       "Mobile Phones",
+//       "Laptops",
+//       "Cameras",
+//       "Headphones",
+//       "Smart Watches",
+//       "Speakers",
+//     ],
+//   },
+//   {
+//     name: "Stationary",
+//     subcategories: [
+//       "Notebooks",
+//       "Pens & Pencils",
+//       "Markers & Highlighters",
+//       "Art Supplies",
+//       "Folders & Files",
+//     ],
+//   },
+//   {
+//     name: "Accessories",
+//     subcategories: [
+//       "Bags & Backpacks",
+//       "Wallets",
+//       "Belts",
+//       "Sunglasses",
+//       "Watches",
+//       "Jewelry",
+//     ],
+//   },
+//   {
+//     name: "Skincare & Haircare",
+//     subcategories: [
+//       "Face Wash",
+//       "Moisturizers",
+//       "Sunscreen",
+//       "Shampoo & Conditioner",
+//       "Hair Oils",
+//       "Face Masks",
+//     ],
+//   },
+//   {
+//     name: "Beauty",
+//     subcategories: [
+//       "Lipstick",
+//       "Foundation",
+//       "Eyeliner & Mascara",
+//       "Blush & Bronzer",
+//       "Makeup Brushes",
+//       "Nail Care",
+//     ],
+//   },
+//   {
+//     name: "Home & Kitchen",
+//     subcategories: [
+//       "Cookware",
+//       "Dining & Serveware",
+//       "Storage & Organization",
+//       "Bedding & Bath",
+//       "Cleaning Supplies",
+//       "Home Decor",
+//     ],
+//   },
+//   {
+//     name: "Sports",
+//     subcategories: [
+//       "Fitness Equipment",
+//       "Yoga & Pilates",
+//       "Outdoor Sports",
+//       "Sportswear",
+//       "Footwear",
+//       "Accessories",
+//     ],
+//   },
+// ];
+
+// const Navbar = () => {
+//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+//   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
+
+//   return (
+//     <nav className="w-full bg-blue-900 shadow-lg">
+//       {/* Mobile Navbar */}
+//       <div className="flex items-center justify-between px-4 py-4 lg:hidden">
+//         {/* Hamburger menu */}
+//         <button onClick={() => setMobileMenuOpen(true)} className="text-white">
+//           <Menu size={28} />
+//         </button>
+
+//         {/* Logo */}
+//         <Link to="/" className="block">
+//           <img
+//             src="/logo1.png"
+//             alt="Logo"
+//             className="h-12 w-auto mx-auto cursor-pointer"
+//           />
+//         </Link>
+//         {/* Cart */}
+//         <div className="relative">
+//           <ShoppingCart size={28} className="text-white" />
+//           <span className="absolute -top-2 -right-3 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full shadow">
+//             0
+//           </span>
+//         </div>
+//       </div>
+
+//       {/* Mobile Search Bar */}
+//       <div className="lg:hidden px-4 pb-4">
+//         <input
+//           type="text"
+//           placeholder="Search for products..."
+//           className="w-full px-4 py-2 rounded-sm border border-gray-300 shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-700 text-black placeholder-gray-400 bg-white"
+//         />
+//       </div>
+
+//       {/* Desktop Navbar */}
+//       <div className="hidden lg:flex items-center justify-between px-8 py-4">
+//         <Link to="/" className="block">
+//           <img
+//             src="/logo1.png"
+//             alt="Logo"
+//             className="h-12 w-auto mx-auto cursor-pointer"
+//           />
+//         </Link>
+//         <input
+//           type="text"
+//           placeholder="Search for products..."
+//           className="w-2/4 px-4 py-2 rounded-sm border border-gray-300 shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-700 text-black placeholder-gray-400 bg-white"
+//         />
+
+//         <div className="flex items-center space-x-6 text-white">
+//           {/* Blog */}
+//           <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
+//             <BookOpen size={18} />
+//             <span>Blog</span>
+//           </div>
+
+//           {/* Sign In */}
+//           <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
+//             <User size={18} />
+//             <span>Sign In</span>
+//           </div>
+
+//           {/* Wishlist */}
+//           <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
+//             <Heart size={18} />
+//             <span>Wishlist</span>
+//           </div>
+
+//           {/* Cart */}
+//           <div className="relative flex items-center cursor-pointer hover:text-yellow-300 transition">
+//             <ShoppingCart size={20} />
+//             <span className="absolute -top-2 -right-3 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full shadow">
+//               0
+//             </span>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Desktop Categories Menu */}
+//       <div className="hidden lg:block bg-white px-12 py-3 relative">
+//         <div className="flex space-x-10 justify-center">
+//           {categories.map((category, idx) => (
+//             <div
+//               key={idx}
+//               className="relative"
+//               onMouseEnter={() => setExpandedCategory(idx)}
+//               onMouseLeave={() => setExpandedCategory(null)}
+//             >
+//               <button className="text-black font-medium hover:text-blue-600 transition py-2 px-3">
+//                 {category.name}
+//               </button>
+
+//               {/* Dropdown */}
+//               {expandedCategory === idx &&
+//                 category.subcategories?.length > 0 && (
+//                   <div className="absolute top-full left-0 mt-0 bg-white shadow-lg rounded-md border border-gray-200 z-50 min-w-[200px]">
+//                     <ul className="py-2">
+//                       {category.subcategories.map((sub, subIdx) => (
+//                         <li
+//                           key={subIdx}
+//                           className="px-4 py-2 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition"
+//                         >
+//                           {sub}
+//                         </li>
+//                       ))}
+//                     </ul>
+//                   </div>
+//                 )}
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu Overlay */}
+//       {mobileMenuOpen && (
+//         <div
+//           className="fixed inset-0 bg-black/70 z-50 flex"
+//           onClick={() => setMobileMenuOpen(false)} // clicking background closes
+//         >
+//           {/* Menu panel */}
+//           <div
+//             className="bg-white w-4/5 h-full p-6 overflow-y-auto flex flex-col justify-between"
+//             onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside panel
+//           >
+//             <div>
+//               {/* Close button */}
+//               <div className="flex justify-end mb-4">
+//                 <button onClick={() => setMobileMenuOpen(false)}>
+//                   <X size={28} />
+//                 </button>
+//               </div>
+
+//               {/* Categories */}
+//               <ul className="space-y-2">
+//                 {categories.map((cat, idx) => (
+//                   <li key={idx} className="border-b pb-2">
+//                     <button
+//                       className="w-full flex justify-between items-center text-black font-medium text-lg"
+//                       onClick={() =>
+//                         setExpandedCategory(
+//                           expandedCategory === idx ? null : idx
+//                         )
+//                       }
+//                     >
+//                       {cat.name}
+//                       <span>{expandedCategory === idx ? "-" : "+"}</span>
+//                     </button>
+
+//                     {/* Subcategories */}
+//                     {expandedCategory === idx && (
+//                       <ul className="pl-4 mt-2 space-y-1 text-gray-700">
+//                         {cat.subcategories.map((sub, subIdx) => (
+//                           <li
+//                             key={subIdx}
+//                             className="hover:text-blue-600 cursor-pointer"
+//                           >
+//                             {sub}
+//                           </li>
+//                         ))}
+//                       </ul>
+//                     )}
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+
+//             {/* Bottom Links: Blog, Sign In, Wishlist */}
+//             <div className="mt-6  pt-4 flex flex-col space-y-4">
+//               <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
+//                 <BookOpen size={18} />
+//                 <span>Blog</span>
+//               </div>
+//               <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
+//                 <User size={18} />
+//                 <span>Sign In</span>
+//               </div>
+//               <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
+//                 <Heart size={18} />
+//                 <span>Wishlist</span>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </nav>
+//   );
+// };
+
+import { useState, useEffect } from "react";
 import { Heart, ShoppingCart, User, BookOpen, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const categories = [
-  {
-    name: "Clothing & Fashion",
-    subcategories: [
-      "Men's Clothing",
-      "Women's Clothing",
-      "Kids' Clothing",
-      "Shoes",
-      "Bags",
-      "Jewelry & Accessories",
-    ],
-  },
-  {
-    name: "Grocery",
-    subcategories: [
-      "Fruits & Vegetables",
-      "Dairy & Eggs",
-      "Snacks",
-      "Beverages",
-      "Staples",
-      "Bakery",
-    ],
-  },
-  {
-    name: "Electronics",
-    subcategories: [
-      "Mobile Phones",
-      "Laptops",
-      "Cameras",
-      "Headphones",
-      "Smart Watches",
-      "Speakers",
-    ],
-  },
-  {
-    name: "Stationary",
-    subcategories: [
-      "Notebooks",
-      "Pens & Pencils",
-      "Markers & Highlighters",
-      "Art Supplies",
-      "Folders & Files",
-    ],
-  },
-  {
-    name: "Accessories",
-    subcategories: [
-      "Bags & Backpacks",
-      "Wallets",
-      "Belts",
-      "Sunglasses",
-      "Watches",
-      "Jewelry",
-    ],
-  },
-  {
-    name: "Skincare & Haircare",
-    subcategories: [
-      "Face Wash",
-      "Moisturizers",
-      "Sunscreen",
-      "Shampoo & Conditioner",
-      "Hair Oils",
-      "Face Masks",
-    ],
-  },
-  {
-    name: "Beauty",
-    subcategories: [
-      "Lipstick",
-      "Foundation",
-      "Eyeliner & Mascara",
-      "Blush & Bronzer",
-      "Makeup Brushes",
-      "Nail Care",
-    ],
-  },
-  {
-    name: "Home & Kitchen",
-    subcategories: [
-      "Cookware",
-      "Dining & Serveware",
-      "Storage & Organization",
-      "Bedding & Bath",
-      "Cleaning Supplies",
-      "Home Decor",
-    ],
-  },
-  {
-    name: "Sports",
-    subcategories: [
-      "Fitness Equipment",
-      "Yoga & Pilates",
-      "Outdoor Sports",
-      "Sportswear",
-      "Footwear",
-      "Accessories",
-    ],
-  },
-];
+interface Category {
+  id: number;
+  name: string;
+}
 
 const Navbar = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
+
+  // Map category names to your routes
+  const categoryRoutes: { [key: string]: string } = {
+    "Clothing & Fashion": "/clothing",
+    Groceries: "/groceries",
+    Electronics: "/electronics",
+    Stationaries: "/stationaries",
+    Accessories: "/accessories",
+    "Skincare & Haircare": "/skincare",
+    Beauty: "/beauty",
+    "Home & Kitchen": "/home",
+    Sports: "/sports",
+  };
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/categories")
+      .then((res) => res.json())
+      .then((data) => {
+        const cats = Array.isArray(data) ? data : data.data;
+        setCategories(cats);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
-    <nav className="w-full bg-blue-900 shadow-lg">
-      {/* Mobile Navbar */}
-      <div className="flex items-center justify-between px-4 py-4 lg:hidden">
-        {/* Hamburger menu */}
-        <button onClick={() => setMobileMenuOpen(true)} className="text-white">
-          <Menu size={28} />
-        </button>
-
-        {/* Logo */}
-        <Link to="/" className="block">
-          <img
-            src="/logo1.png"
-            alt="Logo"
-            className="h-12 w-auto mx-auto cursor-pointer"
-          />
-        </Link>
-        {/* Cart */}
-        <div className="relative">
-          <ShoppingCart size={28} className="text-white" />
-          <span className="absolute -top-2 -right-3 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full shadow">
-            0
-          </span>
-        </div>
-      </div>
-
-      {/* Mobile Search Bar */}
-      <div className="lg:hidden px-4 pb-4">
-        <input
-          type="text"
-          placeholder="Search for products..."
-          className="w-full px-4 py-2 rounded-sm border border-gray-300 shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-700 text-black placeholder-gray-400 bg-white"
-        />
-      </div>
-
+    <nav className="w-full bg-blue-900 shadow-lg relative z-50">
       {/* Desktop Navbar */}
       <div className="hidden lg:flex items-center justify-between px-8 py-4">
-        <Link to="/" className="block">
-          <img
-            src="/logo1.png"
-            alt="Logo"
-            className="h-12 w-auto mx-auto cursor-pointer"
-          />
+        <Link to="/">
+          <img src="/logo1.png" alt="Logo" className="h-12 w-auto cursor-pointer" />
         </Link>
+
         <input
           type="text"
           placeholder="Search for products..."
@@ -484,26 +675,16 @@ const Navbar = () => {
         />
 
         <div className="flex items-center space-x-6 text-white">
-          {/* Blog */}
-          <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
-            <BookOpen size={18} />
-            <span>Blog</span>
-          </div>
-
-          {/* Sign In */}
-          <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
-            <User size={18} />
-            <span>Sign In</span>
-          </div>
-
-          {/* Wishlist */}
-          <div className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition">
-            <Heart size={18} />
-            <span>Wishlist</span>
-          </div>
-
-          {/* Cart */}
-          <div className="relative flex items-center cursor-pointer hover:text-yellow-300 transition">
+          <Link to="/blog" className="flex items-center space-x-2 hover:text-yellow-300">
+            <BookOpen size={18} /> <span>Blog</span>
+          </Link>
+          <Link to="/signin" className="flex items-center space-x-2 hover:text-yellow-300">
+            <User size={18} /> <span>Sign In</span>
+          </Link>
+          <Link to="/wishlist" className="flex items-center space-x-2 hover:text-yellow-300">
+            <Heart size={18} /> <span>Wishlist</span>
+          </Link>
+          <div className="relative flex items-center">
             <ShoppingCart size={20} />
             <span className="absolute -top-2 -right-3 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full shadow">
               0
@@ -512,109 +693,57 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Desktop Categories Menu */}
-      <div className="hidden lg:block bg-white px-12 py-3 relative">
-        <div className="flex space-x-10 justify-center">
-          {categories.map((category, idx) => (
-            <div
-              key={idx}
-              className="relative"
-              onMouseEnter={() => setExpandedCategory(idx)}
-              onMouseLeave={() => setExpandedCategory(null)}
-            >
-              <button className="text-black font-medium hover:text-blue-600 transition py-2 px-3">
-                {category.name}
-              </button>
+      {/* Mobile Navbar */}
+      <div className="flex items-center justify-between px-4 py-4 lg:hidden bg-blue-900">
+        <button onClick={() => setMobileMenuOpen(true)} className="text-white">
+          <Menu size={28} />
+        </button>
 
-              {/* Dropdown */}
-              {expandedCategory === idx &&
-                category.subcategories?.length > 0 && (
-                  <div className="absolute top-full left-0 mt-0 bg-white shadow-lg rounded-md border border-gray-200 z-50 min-w-[200px]">
-                    <ul className="py-2">
-                      {category.subcategories.map((sub, subIdx) => (
-                        <li
-                          key={subIdx}
-                          className="px-4 py-2 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition"
-                        >
-                          {sub}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-            </div>
-          ))}
+        <Link to="/" className="block">
+          <img src="/logo1.png" alt="Logo" className="h-12 w-auto mx-auto cursor-pointer" />
+        </Link>
+
+        <div className="relative">
+          <ShoppingCart size={28} className="text-white" />
+          <span className="absolute -top-2 -right-3 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full shadow">
+            0
+          </span>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/70 z-50 flex"
-          onClick={() => setMobileMenuOpen(false)} // clicking background closes
+          onClick={() => setMobileMenuOpen(false)}
         >
-          {/* Menu panel */}
           <div
-            className="bg-white w-4/5 h-full p-6 overflow-y-auto flex flex-col justify-between"
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside panel
+            className="bg-white w-4/5 h-full p-6 overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div>
-              {/* Close button */}
-              <div className="flex justify-end mb-4">
-                <button onClick={() => setMobileMenuOpen(false)}>
-                  <X size={28} />
-                </button>
-              </div>
+            <div className="flex justify-end mb-4">
+              <button onClick={() => setMobileMenuOpen(false)}>
+                <X size={28} />
+              </button>
+            </div>
 
-              {/* Categories */}
-              <ul className="space-y-2">
-                {categories.map((cat, idx) => (
-                  <li key={idx} className="border-b pb-2">
-                    <button
-                      className="w-full flex justify-between items-center text-black font-medium text-lg"
-                      onClick={() =>
-                        setExpandedCategory(
-                          expandedCategory === idx ? null : idx
-                        )
-                      }
+            <ul className="space-y-2">
+              {categories.length > 0 ? (
+                categories.map((cat) => (
+                  <li key={cat.id} className="border-b pb-2">
+                    <Link
+                      to={categoryRoutes[cat.name] || "/"} // Navigate using mapped route
+                      className="w-full text-left text-black font-medium text-lg"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       {cat.name}
-                      <span>{expandedCategory === idx ? "-" : "+"}</span>
-                    </button>
-
-                    {/* Subcategories */}
-                    {expandedCategory === idx && (
-                      <ul className="pl-4 mt-2 space-y-1 text-gray-700">
-                        {cat.subcategories.map((sub, subIdx) => (
-                          <li
-                            key={subIdx}
-                            className="hover:text-blue-600 cursor-pointer"
-                          >
-                            {sub}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    </Link>
                   </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Bottom Links: Blog, Sign In, Wishlist */}
-            <div className="mt-6  pt-4 flex flex-col space-y-4">
-              <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
-                <BookOpen size={18} />
-                <span>Blog</span>
-              </div>
-              <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
-                <User size={18} />
-                <span>Sign In</span>
-              </div>
-              <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
-                <Heart size={18} />
-                <span>Wishlist</span>
-              </div>
-            </div>
+                ))
+              ) : (
+                <li className="text-gray-500">Loading categories...</li>
+              )}
+            </ul>
           </div>
         </div>
       )}
